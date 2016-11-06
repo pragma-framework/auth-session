@@ -1,5 +1,5 @@
 {
-    "name": "pragma/auth-session",
+    "name": "pragma-framework/auth-session",
     "description": "The Pragma Module for handling users sessions in Pragma Framework",
     "licence": "MIT",
     "keywords": ["pragma", "framework", "session", "auth"],
