@@ -1,23 +1,25 @@
 # Pragma AuthSession
 
-## Pré-requis
+## Prerequisites
 
-Le package utilise les méthodes PHP `password_hash` et `password_verify` qui requièrent php5.5 au minimum.
+This package uses PHP `password_hash` and `password_verify` functions, requiring minimum PHP >= 5.5
 
 ## Configuration
 
 ### config.php
-Dans le config.php, vous avez une constante requise pour le bon fonctionnement du package : `AUTH_USER_MODEL`.
 
-Cette constante définit le nom du modèle qui représente les utilisateurs dans votre application.
+In the `config.php` file, there is a `AUTH_USER_MODEL` constant, needed for a proper functioning of this package.
 
-__Ex :__
+This constant defines the model name representing users of your application.
+
+__Example :__
 
 ```
 define('get_signed_user', 'App\\Models\\User');
 ```
 
-Vous avez également la possibilité de définir le coût pour la génération du hash lié au password des utilisateurs. Par défaut, le système prévoit un coût de 10. Vous avez cependant la possibilité de le surcharger :
+You can also define the user's password hash generation cost. 
+The system default cost is 10. You can overload this by setting `AUTH_CRYPTO_COST` to the desired value:
 
 ```
 define('AUTH_CRYPTO_COST', 13);
@@ -25,32 +27,32 @@ define('AUTH_CRYPTO_COST', 13);
 
 ### session_start()
 
-Ne pas oublier de démarrer la session dans le public/index.php si vous utilisez ce package.
+Do not forget to start session in `public/index.php`of your application if you want to use this package.
 
-## Fonctions proposées
+## Available functions
 
 ### AuthSession::hashgen($pwd)
 
-Cette méthode permet d'obtenir un hash correspondant au `$pwd` passé en clair.
+This method returns the generated hash of the clear text `$pwd` parameter.
 
 ### AuthSession::check_password($pwd, $hash)
 
-Cette méthode permet de comparer un mot de passe passé en clair (`$pwd`) au `$hash` d'un utilisateur.
+This method compares a clear password (`$pwd`) and the user's `$hash`.
 
-retourne true si le mot de passe correspond au hash, false sinon.
+Return value will be `true` if password matches the hash, `false` otherwise.
 
 ### AuthSession::register_session($u)
 
-Stocke les informations de l'utilisateur connecté en session.
+This method stores identified user informations in session.
 
 ### AuthSession::signed_in()
 
-Retourne true si l'utilisateur est connecté, false sinon.
+This method returns `true` if the user is identified, `false` otherwise.
 
 ### AuthSession::get_signed_user()
 
-Retourne l'objet correspondant à l'utilisateur connecté.
+This method return the object instance corresponding to the logged in user.
 
 ### AuthSession::destroy_session()
 
-Permet la destruction des infos de l'utilisateur dans la session. L'utilisateur sera déconnecté.
+This method remove user informations from session, thus logout the user.
