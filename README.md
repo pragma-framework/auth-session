@@ -20,7 +20,7 @@ __Example :__
 define('get_signed_user', 'App\\Models\\User');
 ```
 
-You can also define the user's password hash generation cost. 
+You can also define the user's password hash generation cost.
 The system default cost is 10. You can overload this by setting `AUTH_CRYPTO_COST` to the desired value:
 
 ```
