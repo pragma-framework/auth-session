@@ -15,7 +15,7 @@ This constant defines the model name representing users of your application.
 __Example :__
 
 ```
-define('get_signed_user', 'App\\Models\\User');
+define('AUTH_USER_MODEL', 'App\\Models\\User');
 ```
 
 You can also define the user's password hash generation cost. 
