@@ -7,7 +7,8 @@
         {"name": "Cyril Rouyer"}
     ],
     "require": {
-        "php": ">=5.5.0"
+        "php": ">=5.5.0",
+        "pragma-framework/core": "^1.0.0"
     },
     "autoload": {
         "psr-0" : { "Pragma\\Auth" : "." }
