@@ -2,7 +2,9 @@
 
 ## Prerequisites
 
-This package uses PHP `password_hash` and `password_verify` functions, requiring minimum PHP >= 5.5
+This package uses PHP `password_hash` and `password_verify` functions, requiring minimum `PHP >= 5.3.7`.
+
+Compatibility with PHP versions from `5.3.7` to `5.5` is achieved by using `ircmaxell/password-compat` [composer package](https://packagist.org/packages/ircmaxell/password-compat).
 
 ## Configuration
 
@@ -18,7 +20,7 @@ __Example :__
 define('AUTH_USER_MODEL', 'App\\Models\\User');
 ```
 
-You can also define the user's password hash generation cost. 
+You can also define the user's password hash generation cost.
 The system default cost is 10. You can overload this by setting `AUTH_CRYPTO_COST` to the desired value:
 
 ```
